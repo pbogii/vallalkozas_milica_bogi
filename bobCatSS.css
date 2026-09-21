@@ -1,0 +1,35 @@
+body {
+  margin: 0;                          /* a böngésző alapértelmezett margóját nullázzuk */
+  background-color: palevioletred/* HÁTTÉRSZÍN */;
+  color: black/* SZÖVEGSZÍN */;
+  font-family: 'Times New Roman', Times, serif/* BETŰTÍPUS-LISTA */;
+  font-size: 17px;
+  line-height: 1.7;                /* sortávolság: a betűméret 1,7-szerese */
+}
+
+.fejlec {
+  background-color: /* FŐSZÍN */;
+  color: #ffffff;                  /* fehér szöveg a sötét háttéren */
+  padding: 40px 20px 32px;         /* belső térköz: fent / oldalt / lent */
+  text-align: center;             /* középre igazít mindent, ami benne van */
+}
+
+.profilkep {
+  width: 150px;
+  height: 150px;
+  border: 5px solid #ffffff;       /* vastagság stílus szín */
+  border-radius: 50%;             /* 50% = tökéletes kör */
+  margin-bottom: 14px;
+}
+
+.fejlec h1 {                        /* leszármazott szelektor:
+                                          csak a fejlécben lévő h1 */
+  margin: 0 0 6px;
+  font-size: /* 30px és 36px között */;
+}
+
+.motto {
+  margin: 0;
+  color: /* halvány szín, ami illik a fejléchez */;
+  font-style: italic;
+}
