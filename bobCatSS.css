@@ -1,35 +1,422 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap");
+
+/* ---------- Színek ---------- */
+:root {
+  --mely-lila: #1f0f3d;
+  --lila: #5a2a9c;
+  --vilagos-lila: #8e5bd6;
+  --rozsaszin: #ff4fa3;
+  --vilagos-rozsaszin: #ffd3ea;
+  --arany: #ffc83d;
+  --kartya: #fff7fc;
+  --szoveg: #3a2257;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
 body {
-  margin: 0;                          /* a böngésző alapértelmezett margóját nullázzuk */
-  background-color: palevioletred/* HÁTTÉRSZÍN */;
-  color: black/* SZÖVEGSZÍN */;
-  font-family: 'Times New Roman', Times, serif/* BETŰTÍPUS-LISTA */;
-  font-size: 17px;
-  line-height: 1.7;                /* sortávolság: a betűméret 1,7-szerese */
-}
-
-.fejlec {
-  background-color: /* FŐSZÍN */;
-  color: #ffffff;                  /* fehér szöveg a sötét háttéren */
-  padding: 40px 20px 32px;         /* belső térköz: fent / oldalt / lent */
-  text-align: center;             /* középre igazít mindent, ami benne van */
-}
-
-.profilkep {
-  width: 150px;
-  height: 150px;
-  border: 5px solid #ffffff;       /* vastagság stílus szín */
-  border-radius: 50%;             /* 50% = tökéletes kör */
-  margin-bottom: 14px;
-}
-
-.fejlec h1 {                        /* leszármazott szelektor:
-                                          csak a fejlécben lévő h1 */
-  margin: 0 0 6px;
-  font-size: /* 30px és 36px között */;
-}
-
-.motto {
   margin: 0;
-  color: /* halvány szín, ami illik a fejléchez */;
-  font-style: italic;
+  font-family: "Nunito", "Segoe UI", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--szoveg);
+  background-color: var(--mely-lila);
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255, 79, 163, 0.25) 0, transparent 35%),
+    radial-gradient(circle at 85% 70%, rgba(142, 91, 214, 0.35) 0, transparent 40%),
+    linear-gradient(180deg, #2a1252 0%, #4a2189 100%);
+  background-attachment: fixed;
+}
+
+/* ---------- Fejléc ---------- */
+.fejlec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 36px 20px;
+  text-align: center;
+  background: linear-gradient(120deg, var(--lila) 0%, #a23fc0 55%, var(--rozsaszin) 100%);
+  border-bottom: 5px solid var(--arany);
+}
+
+.logo {
+  width: 125px;
+  height: 125px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+}
+
+.fejlec h1 {
+  margin: 0;
+  font-family: "Baloo 2", cursive;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 3px 0 rgba(31, 15, 61, 0.45), 0 0 18px rgba(255, 255, 255, 0.35);
+}
+
+/* ---------- Menü (bal oldalra igazítva) ---------- */
+.menu {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 12px 24px;
+  background: rgba(31, 15, 61, 0.96);
+  border-bottom: 2px solid var(--rozsaszin);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.menu a {
+  padding: 8px 20px;
+  font-family: "Baloo 2", cursive;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 999px;
+  background: rgba(142, 91, 214, 0.35);
+  transition: background 0.2s, transform 0.2s, color 0.2s;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  background: var(--rozsaszin);
+  color: #fff;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* ---------- Tartalom ---------- */
+.tartalom {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 40px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.doboz {
+  background: var(--kartya);
+  border: 3px solid var(--rozsaszin);
+  border-radius: 28px;
+  padding: 32px 36px;
+  box-shadow: 0 10px 0 var(--vilagos-lila), 0 18px 30px rgba(0, 0, 0, 0.35);
+}
+
+.doboz h1,
+.doboz h2 {
+  margin: 0 0 14px;
+  font-family: "Baloo 2", cursive;
+  font-weight: 800;
+  color: var(--lila);
+}
+
+.doboz h2 {
+  font-size: 2rem;
+  display: inline-block;
+  border-bottom: 4px solid var(--rozsaszin);
+  padding-bottom: 2px;
+}
+
+.doboz p {
+  margin: 0;
+}
+
+.doboz i {
+  color: var(--rozsaszin);
+  font-weight: 700;
+}
+
+/* ---------- Váltakozó oldalú dobozok képpel ----------
+   A képek a CSS-ből jönnek (háttérkép), a fájlneveket átírhatod a sajátjaidra.
+   Rólunk: kép bal oldalt, Motivációnk: kép jobb oldalt, Terveink: kép bal oldalt. */
+#rolunk,
+#motivacionk,
+#terveink {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  column-gap: 32px;
+  align-items: center;
+}
+
+#rolunk,
+#terveink {
+  grid-template-columns: 280px 1fr;
+}
+
+#rolunk::before,
+#motivacionk::after,
+#terveink::before {
+  content: "";
+  grid-row: 1 / span 2;
+  align-self: stretch;
+  min-height: 240px;
+  border-radius: 22px;
+  border: 3px solid var(--arany);
+  background-size: cover;
+  background-position: center;
+  background-color: var(--vilagos-lila);
+  box-shadow: 0 6px 16px rgba(90, 42, 156, 0.4);
+}
+
+/* kép bal oldalt */
+#rolunk::before,
+#terveink::before {
+  grid-column: 1;
+}
+
+#rolunk h2,
+#rolunk p,
+#terveink h2,
+#terveink p {
+  grid-column: 2;
+}
+
+/* kép jobb oldalt */
+#motivacionk::after {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+#motivacionk h2,
+#motivacionk p {
+  grid-column: 1;
+}
+
+#rolunk h2,
+#motivacionk h2,
+#terveink h2 {
+  justify-self: start;
+  align-self: end;
+}
+
+#rolunk p,
+#motivacionk p,
+#terveink p {
+  align-self: start;
+}
+
+/* ide írd a saját képeid nevét */
+#rolunk::before {
+  background-image: url("sso.png"), linear-gradient(135deg, var(--vilagos-lila), var(--rozsaszin));
+}
+
+#motivacionk::after {
+  background-image: url("wow.png"), linear-gradient(135deg, var(--rozsaszin), var(--vilagos-lila));
+}
+
+#terveink::before {
+  background-image: url("terveink.png"), linear-gradient(135deg, var(--vilagos-lila), var(--arany));
+}
+
+/* ---------- Galéria (cím középen, alatta 3x3 kép) ---------- */
+#galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+#galeria h1 {
+  grid-column: 1 / -1;
+  margin: 0 0 6px;
+  text-align: center;
+  font-size: 2.6rem;
+}
+
+#galeria img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 3px solid var(--vilagos-rozsaszin);
+  background: linear-gradient(135deg, var(--vilagos-lila), var(--rozsaszin));
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+}
+
+#galeria img:hover {
+  transform: scale(1.08);
+  border-color: var(--arany);
+  box-shadow: 0 10px 22px rgba(90, 42, 156, 0.5);
+  position: relative;
+  z-index: 2;
+}
+
+/* Ha a képeket <figure> + <figcaption> közé teszed, a kis szöveg is működik */
+#galeria figure {
+  margin: 0;
+  text-align: center;
+}
+
+#galeria figure img {
+  margin-bottom: 8px;
+}
+
+#galeria figcaption {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--lila);
+}
+
+#galeria figure:hover img {
+  transform: scale(1.08);
+  border-color: var(--arany);
+  box-shadow: 0 10px 22px rgba(90, 42, 156, 0.5);
+}
+
+/* ---------- Kapcsolat / űrlap ---------- */
+#kapcsolat h3 {
+  margin: 8px 0 0;
+  font-family: "Baloo 2", cursive;
+  font-size: 1.15rem;
+  color: var(--lila);
+}
+
+#kapcsolat form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 10px 0 22px;
+  padding: 22px;
+  border-radius: 20px;
+  background: var(--vilagos-rozsaszin);
+}
+
+#kapcsolat label {
+  font-weight: 700;
+  color: var(--lila);
+}
+
+#kapcsolat input[type="email"],
+#kapcsolat textarea {
+  width: 100%;
+  max-width: 420px;
+  margin-top: 6px;
+  padding: 10px 14px;
+  font: inherit;
+  color: var(--szoveg);
+  background: #fff;
+  border: 2px solid var(--vilagos-lila);
+  border-radius: 14px;
+}
+
+#kapcsolat input:focus,
+#kapcsolat textarea:focus {
+  outline: none;
+  border-color: var(--rozsaszin);
+  box-shadow: 0 0 0 4px rgba(255, 79, 163, 0.25);
+}
+
+button[type="submit"] {
+  align-self: flex-start;
+  padding: 12px 34px;
+  font-family: "Baloo 2", cursive;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ff7cbd 0%, var(--rozsaszin) 100%);
+  box-shadow: 0 5px 0 #c42a78, 0 10px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, #ffd35e 0%, var(--arany) 100%);
+  color: var(--mely-lila);
+  box-shadow: 0 7px 0 #c9951a, 0 12px 18px rgba(0, 0, 0, 0.25);
+}
+
+button[type="submit"]:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #c42a78;
+}
+
+/* ---------- Lábléc ---------- */
+.lablec {
+  margin-top: 40px;
+  padding: 24px 20px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(120deg, var(--lila), #a23fc0 60%, var(--rozsaszin));
+  border-top: 5px solid var(--arany);
+}
+
+.lablec p {
+  margin: 0;
+}
+
+.lablec a {
+  color: var(--arany);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.lablec a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Mobil nézet ---------- */
+@media (max-width: 760px) {
+  .fejlec {
+    flex-direction: column;
+  }
+
+  .doboz {
+    padding: 24px 20px;
+  }
+
+  #rolunk,
+  #motivacionk,
+  #terveink {
+    display: block;
+  }
+
+  #rolunk::before,
+  #motivacionk::after,
+  #terveink::before {
+    display: block;
+    min-height: 200px;
+    margin: 0 0 18px;
+  }
+
+  #motivacionk::after {
+    margin: 18px 0 0;
+  }
+
+  #galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  #galeria {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
